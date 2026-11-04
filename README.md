@@ -5,6 +5,30 @@ FieldOps AI is a maintenance intake and human-reviewed work-order assistant for 
 Source: [GitHub repository](https://github.com/acesmile123/FieldOps-AI-Autonomous-Maintenance-Agent).
 
 **Release candidate:** Local single-workspace MVP. The application accepts intake, creates a persistent draft, shows original evidence and audit events, and supports human edits and explicit approval. It has no authentication and must not be exposed as a public multi-user service.
+## Key Features
+
+- **Multimodal Maintenance Intake:** Accepts natural-language reports, equipment photos, and voice recordings.
+- **AI-Powered Analysis:** Uses Meta Muse Spark for structured maintenance intake analysis and Muse Voice Transcribe for audio transcription.
+- **Evidence-Aware Work Orders:** Separates reported symptoms, visual observations, inferences, assumptions, and unknowns.
+- **Human-in-the-Loop Approval:** Converts validated AI analysis into editable draft work orders that require explicit human approval.
+- **Auditable Workflow:** Persists work orders, agent runs, processing events, and approval history.
+- **Transparent AI Modes:** Clearly distinguishes live Meta API results from deterministic mock data.
+
+## Technology Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js, React, TypeScript, Tailwind CSS |
+| Backend | Python, FastAPI |
+| Database | SQLite, SQLAlchemy |
+| AI – Reasoning & Vision | Meta Muse Spark |
+| AI – Speech Transcription | Meta Muse Voice Transcribe |
+| Validation | Pydantic |
+| Testing | Pytest, Next.js build and type checks |
+
+## Product Scope and Limitations
+
+FieldOps AI is currently a local, single-workspace MVP. It does not provide authentication, multi-tenant isolation, automatic technician dispatch, or autonomous equipment repair. AI-generated maintenance analyses are advisory drafts and require human review before approval.
 
 ## Requirements
 
