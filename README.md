@@ -2,6 +2,8 @@
 
 FieldOps AI is a maintenance intake and human-reviewed work-order assistant for the Meta Global AI Developer Hackathon.
 
+Source: [GitHub repository](https://github.com/acesmile123/FieldOps-AI-Autonomous-Maintenance-Agent).
+
 **Release candidate:** Local single-workspace MVP. The application accepts intake, creates a persistent draft, shows original evidence and audit events, and supports human edits and explicit approval. It has no authentication and must not be exposed as a public multi-user service.
 
 ## Requirements

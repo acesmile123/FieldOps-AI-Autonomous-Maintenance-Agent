@@ -9,7 +9,7 @@ Updated: 2026-11-05 ICT (M5 release candidate)
 - M2: complete. Live text, structured, image, voice and combined pipeline checks passed; typed mock endpoint and automated tests passed.
 - M3: complete. Persistent draft work orders, media metadata, agent runs/events, edit/approval/status routes and restart check pass.
 - M4: complete for the local single-workspace MVP. Browser UI covers intake, review, edits, explicit approval, list filters and audit history. Automated gates and a real Chrome interaction smoke flow passed. Audible playback and a final human visual walkthrough are recommended before recording the submission demo.
-- M5: local release candidate checks complete and a source-only initial Git commit was created. Public remote, participant/account checks, paid live browser retest, audible speaker check and submission video remain external actions. Submission is **NO-GO** until the public repository and video links plus participant eligibility are verified.
+- M5: local release candidate checks complete. The reviewed source was pushed to public GitHub on `main`; participant/account checks, the paid live browser result, audible speaker check and submission video remain external actions. Submission is **NO-GO** until video and participant eligibility are verified.
 
 ## M5 release candidate verification
 
@@ -18,10 +18,11 @@ Updated: 2026-11-05 ICT (M5 release candidate)
 - Chrome production-browser QA — PASS: overview, intake, work-order list and persisted detail rendered; true 390px CSS viewport had `scrollWidth=390` and no overflow. Uploaded WAV started playback and `currentTime` advanced from 0 to 0.88 seconds. The media route served HTTP 206 range content to Chrome. Physical speaker/headphone audibility could not be measured remotely and is explicitly unverified.
 - Initial Chrome QA found `/favicon.ico` 404 network errors. Added `frontend/src/app/icon.svg` and `favicon.ico`; `/favicon.ico` then returned HTTP 200 `image/x-icon`. Rerun recorded **0 browser console/runtime errors**. No other reproducible critical bug was found.
 - Existing tests and M4 browser smoke cover invalid media, safe provider errors, mock/live separation, draft-only edits, guarded transitions, explicit approval, audit events, refresh persistence and filters. M5 made no paid Meta API request, following the user's authorization rule. M2's live text, image, structured and voice checks remain the evidence for live provider operation.
-- Git was initialized at `fieldops_ai_codex_handoff` with no remote. The parent workspace `.env` is outside that Git root. The project `.gitignore` excludes `.env*` except `.env.example`, SQLite, uploads, virtual environments, `node_modules`, `.next`, caches, logs and `*.tsbuildinfo`. Review of 63 staged files found no forbidden release path, exact configured-key copy, private-key block or credential-like assignment; `git diff --cached --check` passed. Existing SQLite and uploads were preserved.
+- Git was initialized at `fieldops_ai_codex_handoff`; `origin` now points to the [GitHub repository](https://github.com/acesmile123/FieldOps-AI-Autonomous-Maintenance-Agent). The parent workspace `.env` is outside that Git root. The project `.gitignore` excludes `.env*` except `.env.example`, SQLite, uploads, virtual environments, `node_modules`, `.next`, caches, logs and `*.tsbuildinfo`. Review of the 64 committed files after merging GitHub's Apache 2.0 LICENSE found no forbidden release path, configured-key copy or private-key block. Existing SQLite and uploads were preserved.
 - Read-only SQLite inspection found **11 work orders** and **14 mock agent runs** (including failed validation runs). For a clean demo use a separate ignored `demo_fieldops.db`; do not delete the original database or uploads without a backup. A final physical audio check and a full paid live browser intake remain unverified.
 - [Meta's current event page](https://dev.meta.ai/events/global-hackathon) lists November 4, 2026 at 9:00 PM ET as the submission deadline (November 5 at 9:00 AM ICT). Meta says dates may change; the accepted participant must confirm the live portal. Account acceptance, credit balance and billing were not accessible from this workspace.
-- Added [DEMO_SCRIPT](DEMO_SCRIPT.md) and [SUBMISSION_CHECKLIST](SUBMISSION_CHECKLIST.md); updated README and `.env.example` for a local mock-first setup. No new product feature, hosted deployment or remote repository was created.
+- Added [DEMO_SCRIPT](DEMO_SCRIPT.md) and [SUBMISSION_CHECKLIST](SUBMISSION_CHECKLIST.md); updated README and `.env.example` for a local mock-first setup. No new product feature or hosted deployment was created. After M5, the user supplied an existing GitHub repository containing only LICENSE; its history was merged without force-push and the reviewed source was pushed.
+- GitHub publication verification: `main` was pushed at merge commit `499c844b292469319f63fea742301074364d5231`; anonymous `git ls-remote` returned the same commit, and the public raw README returned HTTP 200. The parent `.env`, API key, SQLite, `.uploads/`, virtual environment and build output were absent from the committed tree.
 
 ## Completed
 
@@ -135,7 +136,7 @@ Updated: 2026-11-05 ICT (M5 release candidate)
 
 - The CC0 speech sample remains only in ignored `.uploads/`; the public demo still needs a maintenance-specific, rights-cleared voice note.
 - Participant status, credits and billing are account-level facts not established by this build.
-- A local Git repository exists at the project root; public GitHub remote, push and accessibility check remain unverified.
+- Public GitHub remote, push and anonymous Git/raw README access passed. A signed-out visual browser check of the GitHub page remains for the participant.
 - The M4 browser workflow passed Chrome interaction checks in mock mode. The live-mode label passed with the backend configured live; M2 had already verified actual Meta model calls. A full paid browser intake in live mode and audible speaker playback were not repeated during M4.
 - The current workspace-root configuration enables mock mode even though a live key is present. A future live app run must set `DEMO_MOCK_MODE=false`; the app must never silently switch modes.
 
@@ -143,4 +144,4 @@ Updated: 2026-11-05 ICT (M5 release candidate)
 
 1. Listen to the uploaded WAV through speakers/headphones and record the three-minute demo with a rights-cleared maintenance voice note and photo. The headless browser playback advanced, but sound output was not personally heard.
 2. Confirm accepted participant status, credits, billing, exact portal requirements and deadline. If credits and authorization permit, run one full paid live browser intake; keep the key server-side.
-3. Create a public GitHub repository, push the reviewed source-only local commit, verify both repository and video links while signed out, then submit and save confirmation. No remote or submission was created during M5.
+3. Open the [public GitHub repository](https://github.com/acesmile123/FieldOps-AI-Autonomous-Maintenance-Agent) while signed out, verify the video link when ready, then submit and save confirmation. The repository was pushed; no hackathon submission was made.
